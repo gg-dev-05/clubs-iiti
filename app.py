@@ -10,6 +10,7 @@ from config.mysql import mysql
 from config.OAuth import oauth
 from dotenv import find_dotenv,load_dotenv
 
+from routes.homeRoutes import home
 '''
 loading environment variables using dotenv
 '''
@@ -37,6 +38,7 @@ oauth.init_app(app)
 
 app.secret_key = os.environ.get("secret_key")
 
+app.register_blueprint(home)
 
 @app.errorhandler(404)
 def page_not_found(e):
