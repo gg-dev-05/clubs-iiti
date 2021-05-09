@@ -1,0 +1,337 @@
+{% extends 'base.html' %} {% block title %}
+<title>ClubsIITI</title>
+{% endblock title %}
+
+
+
+
+<body id="page-top">
+
+
+    {% block link %} href="#page-top" {% endblock link %}{% block navElements %}
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#cultural" style="color:white;">CULTURALS</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#technical" style="color:white;">TECHNICALS</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="color:white;">ABOUT</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="color:white;">CONTACT</a>
+            </li>
+            </li>
+            {% if name == None %}
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login" style="color:white;">Login</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logout" style="color:white;">Logout</a>
+            </li>
+            {% if not admin %}
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/details" style="color:white;">Edit</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+                <p class="py-3 px-0 px-lg-3 " style="color: lightblue;">User: {{name}}</p>
+            </li>
+            {% else %}
+            <li class="nav-item mx-0 mx-lg-1">
+                <p class="py-3 px-0 px-lg-3 " style="color: red;">User: {{name}}</p>
+            </li>
+            {% endif %} {% endif %}
+
+
+        </ul>
+
+    </div>
+
+
+
+
+    {% endblock navElements %} {% block body %}
+
+
+
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center" id="page-top">
+
+        {% if msg %}
+        <div class="container fixed-top">
+            <div class="alert alert-{{msg_alert}} alert-dismissible fade show" role="alert">
+                {{msg}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+
+
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src=" https://i.imgur.com/vWkvi0j.png" alt="">
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading mb-0" style="font-family: 'Kaushan Script', cursive;">IIT INDORE</h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="pre-wrap masthead-subheading font-weight-light mb-0"></p>
+        </div>
+
+
+
+
+    </header>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="masthead-heading mb-0 text-center" style="font-family: 'Kaushan Script', cursive;">Recent Events:</h1>
+                </div>
+                <div class="col">
+                    <div class="row h4">
+                        <div class="col d-md-block">
+                            <a href="/clubs/{{events[0][0]}}#events">{{events[0][1]}}</a>
+                        </div>
+                        <div class="col d-none d-md-block">
+                            <a href="/clubs/{{events[1][0]}}#events">{{events[1][1]}}</a>
+                        </div>
+                        <div class="col d-none d-md-block">
+                            <a href="/clubs/{{events[2][0]}}#events">{{events[2][1]}}</a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="cultural">
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-family: 'Kaushan Script', cursive;">Cultural Clubs</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/literary">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['literary']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Literary Club</h2>
+
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/cinephiles">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['cinephiles']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Cinephiles</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/kalakriti">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['kalakriti']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Kalakriti</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/dance">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['dance']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Dance</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/dramatics">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['dramatics']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Dramatics Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/music">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['music']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Music Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/mystic_hues">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['mystic_hues']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Mystic Hues</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/quiz">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['quiz']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Quiz Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/debsoc">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['debsoc']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Debsoc</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/avana">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['avana']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Avana</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/srijanClub">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['srijanClub']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Srijan</h2>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Portfolio Section-->
+    <section class="page-section portfolio" id="technical">
+
+        <div class="container">
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" style="font-family: 'Kaushan Script', cursive;">Technical Clubs</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row">
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/progClub">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['progClub']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;" style="font-family: 'Ubuntu', sans-serif;">P Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/robotics">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['robotics']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Robotics Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/concreate">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['concreate']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Concreate Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/cae">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['cae']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">CAE Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/astronomy">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['astronomy']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Astronomy Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/electronics">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['electronics']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Electronics Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/aeromodelling">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['aeromodelling']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">Aeromodelling Club</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="/clubs/dsc">
+                        <div class="portfolio-item mx-auto">
+                            <img class="img-fluid" src="{{img['dsc']}}" alt="">
+                            <h2 class="text-center" style="font-family: 'Ubuntu', sans-serif;">DSC</h2>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    {% endblock body %}
+
+
+</body>
+
+
+</html>
