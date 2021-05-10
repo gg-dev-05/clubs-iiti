@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}
+<title>Edit {{clubName}}</title>
+
+{% block link %} href="/" {% endblock link %} {% endblock title %} {% block body %}
+<div class="container mt-5 pt-5">
+    <form action="/clubs/{{clubName}}/edit" method="POST">
+
+        <div class="form-group">
+            <label for="info">New Description</label>
+            <textarea rows="8" type="text" class="form-control" id="info" name="info">{{info}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="achievements">Edit achievements</label>
+            <textarea rows="8" type="text" class="form-control" id="achievements" name="achievements">{{achievements}}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="events">Edit Evemts</label>
+            <textarea rows="8" type="text" class="form-control" id="events" name="events">{{events}}</textarea>
+        </div>
+
+
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+</div>
+<div class="container mt-5 pt-5">
+    <button type="submit" class="btn btn-primary ">Submit</button>
+</div>
+
+</form>
+</div>
+
+{% endblock body %} {% block extraScripts %}
+<script src="{{ url_for('static', filename='js/studentForm.js')  }}"></script>
+
+{% endblock extraScripts %}
