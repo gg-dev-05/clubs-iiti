@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='css/datetime.css')  }}"
+		/>
+		<!-- Favicon-->
+		<link
+			rel="shortcut icon"
+			href="{{ url_for('static', filename='favicon.ico') }}"
+			type="image/x-icon"
+		/>
+		<link
+			rel="icon"
+			href="{{ url_for('static', filename='favicon.ico') }}"
+			type="image/x-icon"
+		/>
+		<title>Schedule Interview</title>
+		<style>
+			body {
+				background-image: url("https://images.pexels.com/photos/5534634/pexels-photo-5534634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container mt-5 mb-5">
+			<h1>Schedule interview of <strong>{{student}}</strong></h1>
+		</div>
+		<div class="container">
+			<form
+				action="/clubs/{{clubName}}/meeting/{{student}}"
+				method="POST"
+			>
+				<div class="form-group">
+					<label for="time">TIME</label>
+					<input
+						type="text"
+						class="form-control"
+						id="alarm"
+						name="time"
+						value="{{meeting_details.0}}"
+						placeholder=""
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="date">DATE</label>
+					<input
+						type="text"
+						class="form-control"
+						id="date-input"
+						name="date"
+						value="{{date}}"
+						placeholder="Date of Interview"
+						required
+					/>
+				</div>
+
+				<div class="form-group">
+					<label for="link">Meeting Link</label>
+					<input
+						type="text"
+						class="form-control"
+						id="link-input"
+						name="link"
+						value="{{meeting_details.2}}"
+						placeholder="Ex: https://meet.google.com/dwj-whdv-yfc"
+						required
+					/>
+				</div>
+				<button type="submit" class="btn btn-outline-danger">
+					Schedule
+				</button>
+				<button type="button" class="btn btn-outline-primary">
+					<a href="{{meeting_details.2}}">JOIN MEETING</a>
+				</button>
+				<input type="hidden" name="host" value="{{host}}" />
+				<!-- <input type="hidden" name="student" value="{{student}}" /> -->
+			</form>
+		</div>
+	</body>
+
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"
+	></script>
+	<script src="{{ url_for('static', filename='js/datedropper.pro.min.js')  }}"></script>
+	<script src="{{ url_for('static', filename='js/timedropper.min.js')  }}"></script>
+
+	<!-- datedropper init -->
+	<script>
+		$("#date-input").dateDropper();
+	</script>
+	<script src="{{ url_for('static', filename='js/datetime.js')  }}"></script>
+</html>
