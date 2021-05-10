@@ -15,6 +15,9 @@ from dotenv import find_dotenv, load_dotenv
 from routes.homeRoutes import home
 from routes.detailsRoutes import details
 from routes.authRoutes import auth
+from routes.clubRoutes import clubs
+from routes.student import student
+from routes.adminAccess import admin
 
 '''
 loading environment variables using dotenv
