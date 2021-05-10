@@ -11,6 +11,9 @@ from config.OAuth import oauth
 from dotenv import find_dotenv,load_dotenv
 
 from routes.homeRoutes import home
+from routes.detailsRoutes import details
+from routes.authRoutes import auth
+
 '''
 loading environment variables using dotenv
 '''
@@ -39,6 +42,8 @@ oauth.init_app(app)
 app.secret_key = os.environ.get("secret_key")
 
 app.register_blueprint(home)
+app.register_blueprint(details)
+app.register_blueprint(auth)
 
 @app.errorhandler(404)
 def page_not_found(e):
