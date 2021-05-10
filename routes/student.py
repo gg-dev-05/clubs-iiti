@@ -46,3 +46,23 @@ def studentHome():
     else:
         # print("Redirect")
         return redirect("/login")
+
+
+@student.route("/remove", methods=['POST'])
+def bye():
+    user = dict(session).get("email", None)
+    if(user == None):
+        return render_template("signIn.html")
+
+    if request.method == 'POST':
+        cur = mysql.connection.cursor()
+
+        print("Executing Query: " +
+              "DELETE FROM students WHERE Mail_Id='{}';".format(user))
+        cur.execute("DELETE FROM students WHERE Mail_Id='{}';".format(user))
+        mysql.connection.commit()
+        cur.close()
+        return render_template("goodbye.html")
+
+    else:
+        return render_template("error.html")
