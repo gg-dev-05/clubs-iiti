@@ -1,129 +1,111 @@
 .img-fluid {
-  margin: auto;
-  height: 50%;
-  width: 50%;
+	margin: auto;
+	height: 50%;
+	width: 50%;
 }
-
 #sz-control {
-  max-width: 80%;
-  margin: auto;
+	max-width: 80%;
+	margin: auto;
 }
-
 #intro {
-  font-size: 55px;
-  width: 100%;
-  height: 100vh;
-  color: #fff;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  position: relative;
-  animation: change 3s ease-in-out infinite;
+	font-size: 55px;
+	width: 100%;
+	height: 100vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 3s ease-in-out infinite;
 }
-
 #events {
-  width: 100%;
-  height: 100vh;
-  color: #fff;
-  background: linear-gradient(-45deg, #eee452, #e73cde, #23d5b7, #23d5ab);
-  background-size: 400% 400%;
-  position: relative;
-  animation: change 3s ease-in-out infinite;
+	width: 100%;
+	height: 100vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #eee452, #e73cde, #23d5b7, #23d5ab);
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 3s ease-in-out infinite;
 }
-/* section2{
-    width: 100%;
-    height: 100vh;
-    color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E , #23A6D5,#23D5AB);
-    background-size: 400% 400%;
-    position: relative;
-    animation: change 10s ease-in-out infinite;
-} */
 #teams {
-  width: 100%;
-  height: 100vh;
-  color: #fff;
-  background: linear-gradient(-45deg, #eee452, #e7b93c, #23abd5, #79d523);
-  background-size: 400% 400%;
-  position: relative;
-  animation: change 3s ease-in-out infinite;
+	width: 100%;
+	height: 100vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #eee452, #e7b93c, #23abd5, #79d523);
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 3s ease-in-out infinite;
 }
 #achievements {
-  width: 100%;
-  height: 100vh;
-  color: rgb(252, 252, 252);
-  background: linear-gradient(-45deg, #ee5252, #3ce74a, #23d5b7, #d2d523);
-  background-size: 400% 400%;
-  position: relative;
-  animation: change 3s ease-in-out infinite;
+	width: 100%;
+	height: 100vh;
+	color: #fcfcfc;
+	background: linear-gradient(-45deg, #ee5252, #3ce74a, #23d5b7, #d2d523);
+	background-size: 400% 400%;
+	position: relative;
+	animation: change 3s ease-in-out infinite;
 }
-
 @keyframes change {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
 }
-
 #introtxt {
-  font-size: 43px;
-  font-family: "Henny Penny", cursive;
-  color: rgb(231, 225, 225);
-  word-wrap: break-word;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid orange; /* The typwriter cursor */
-  /* white-space: nowrap; Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+	font-size: 43px;
+	font-family: "Henny Penny", cursive;
+	color: #e7e1e1;
+	word-wrap: break-word;
+	overflow: hidden;
+	border-right: 0.15em solid orange;
+	margin: 0 auto;
+	letter-spacing: 0.15em;
+	animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
 }
-
-/* The typewriter cursor effect */
 @keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: orange;
-  }
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: orange;
+	}
 }
-
 .glow {
-  font-size: 80px;
-  color: rgb(29, 27, 27);
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+	font-size: 80px;
+	color: #1d1b1b;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
 }
-
 @keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
-      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
-      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
+	from {
+		text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+			0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073,
+			0 0 70px #e60073;
+	}
+	to {
+		text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+			0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6,
+			0 0 80px #ff4da6;
+	}
 }
-
 .writtentxt {
-  font-family: "Dancing Script", cursive;
-  font-size: 38px;
-  font-weight: 200;
-  color: rgb(5, 5, 5);
+	font-family: "Dancing Script", cursive;
+	font-size: 38px;
+	font-weight: 200;
+	color: #050505;
 }
