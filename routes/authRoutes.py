@@ -17,7 +17,6 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get("userinfo", token=token)
     user_info = resp.json()
-    # print(user_info)
     session["email"] = user_info["email"]
     email = session["email"]   
     session["name"] = user_info["name"]

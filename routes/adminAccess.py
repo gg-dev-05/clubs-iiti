@@ -13,8 +13,6 @@ def manage(clubName, manage, email):
     if(user == None):
         return render_template("signIn.html")
     verified = False
-    print("Running query: ", "SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id = '{}'".format(
-        session["email"]))
     cur.execute(
         f"SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id ='{user}'")
     club = cur.fetchall()
@@ -31,8 +29,6 @@ def manage(clubName, manage, email):
             cur.execute(
                 "select Club_Name FROM clubs WHERE Title='{}'".format(clubName))
             club = cur.fetchone()
-            print("Executing Query: " +
-                  "DELETE FROM clubMembers WHERE Mail_Id='{}' AND Club_Name='{}';".format(email, club[0]))
             cur.execute("DELETE FROM clubMembers WHERE Mail_Id='{}' AND Club_Name='{}';".format(
                 email, club[0]))
             mysql.connection.commit()
@@ -92,8 +88,6 @@ def edit(clubName):
             return render_template("signIn.html")
 
         verified = False
-        print("Running query: ", "SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id = '{}'".format(
-            session["email"]))
         cur.execute(
             f"SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id ='{email}'")
         club = cur.fetchall()
@@ -103,8 +97,6 @@ def edit(clubName):
                 verified = True
 
         if(verified):
-            print("Running query:",
-                  "select Info, Achievements, Events FROM clubs WHERE Title='{}'".format(clubName))
             cur.execute(
                 "select Info, Achievements, Events FROM clubs WHERE Title='{}'".format(clubName))
             information = cur.fetchone()
@@ -115,7 +107,6 @@ def edit(clubName):
 
     else:
         data = request.form
-        # print("Fetched form data")
         info = data['info']
         # replace ' with " so that these string does not interfere with our sql queries
         info = info.replace("'", '"')
@@ -124,8 +115,6 @@ def edit(clubName):
         events = data['events']
         events = events.replace("'", '"')
         cur = mysql.connection.cursor()
-        print("Running query:", "UPDATE clubs SET Info = '{}', Achievements = '{}', Events = '{}' WHERE Title = '{}'".format(
-            info, achievements, events, clubName))
         cur.execute("UPDATE clubs SET Info = '{}', Achievements = '{}', Events = '{}' WHERE Title = '{}'".format(
             info, achievements, events, clubName))
         cur.execute(
@@ -171,7 +160,6 @@ def schedule(clubName, student):
             link = details['link']
             host = details['host']
 
-            # print(host, student, time, date, link)
 
             # Insert into db
 
@@ -181,9 +169,6 @@ def schedule(clubName, student):
                 time, date, link))
 
             cur = mysql.connection.cursor()
-            # print("INSERT INTO meetings VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE host_mail_id=%s, student_mail_id=%s, meeting_time=%s, meeting_date=%s, link=%s",
-            #     (host, student, time, date, link,
-            #         host, student, time, date, link ))
             cur.execute("INSERT INTO meetings VALUES (%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE host_mail_id=%s, student_mail_id=%s, meeting_time=%s, meeting_date=%s, link=%s",
                         (host, student, time, date, link,
                          host, student, time, date, link))
@@ -201,13 +186,11 @@ def schedule(clubName, student):
                     user, student))
                 meeting_details = cur.fetchone()
                 date = str(meeting_details[1])
-                # print(date, type(date))
                 date = date.split("-")
                 date = date[1]+'/'+date[2]+'/'+date[0]
                 date = date
                 send_mail(user, "Subject: Meeting Updated\n\nMeeting updated with {}\nDetails:\nTime: {}\n Date: {}\n Link: {}".format(
                     student, meeting_details[0], date, meeting_details[2]))
-                # print(meeting_details)
                 return render_template("interview.html", host=user, student=student, clubName=clubName, meeting_details=meeting_details, date=date)
             else:
                 return render_template("error.html")
@@ -225,14 +208,11 @@ def detailsOfStudent(clubName, email):
 
     verified = False
     cur = mysql.connection.cursor()
-    print("Running query: ", "SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id = '{}'".format(
-        session["email"]))
     cur.execute(
         f"SELECT Club_Title FROM clubheads WHERE Club_Head_Mail_Id ='{user}'")
     club = cur.fetchall()
     cur.execute(f"SELECT * FROM students WHERE Mail_id ='{email}'")
     member = cur.fetchone()
-    print("member: ", member)
     for i in club:
         if (i[0] == clubName):
             verified = True
