@@ -44,7 +44,6 @@ def studentHome():
             return str(e)
 
     else:
-        # print("Redirect")
         return redirect("/login")
 
 
@@ -57,8 +56,6 @@ def bye():
     if request.method == 'POST':
         cur = mysql.connection.cursor()
 
-        print("Executing Query: " +
-              "DELETE FROM students WHERE Mail_Id='{}';".format(user))
         cur.execute("DELETE FROM students WHERE Mail_Id='{}';".format(user))
         mysql.connection.commit()
         cur.close()

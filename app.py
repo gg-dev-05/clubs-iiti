@@ -56,7 +56,6 @@ app.register_blueprint(admin)
 
 @app.errorhandler(404)
 def page_not_found(e):
-    print("Page Not Found")
     return render_template('error.html')
 
 
