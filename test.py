@@ -30,6 +30,7 @@ class FlaskTestCase(unittest.TestCase):
                     (By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
             )
             self.assertTrue('Successfully signed in as' in driver.page_source)
+            driver.quit()
         except:
             driver.quit()
 
@@ -66,6 +67,7 @@ class FlaskTestCase(unittest.TestCase):
             )
             self.assertTrue(
                 'Only Club Head can continue further' in driver.page_source)
+            driver.quit()
         except:
             driver.quit()
 
@@ -96,7 +98,7 @@ class FlaskTestCase(unittest.TestCase):
                 tester = app.test_client(self)
                 response = tester.get('/clubs/avana', content_type='html/text')
                 self.assertTrue(b'join' in response.data)
-            
+            driver.quit()
         except:
             driver.quit()
 
