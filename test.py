@@ -29,58 +29,92 @@ class FlaskTestCase(unittest.TestCase):
     #     response = tester.get('/', content_type='html/text')
     #     self.assertTrue(b'contact' in response.data)
     
-    def test_club_admim_login(self):
-        "make sure club admin can sign in"
-        driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
-        driver.get("http://localhost:5000/login")
-        try:
-            input_field = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
-            )
-            input_field.send_keys(email)
-            input_field.send_keys(Keys.RETURN)
-            password_field = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
-            )
-            password_field.send_keys(password)
-            password_field.send_keys(Keys.RETURN)
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
-            )
-            self.assertTrue('Successfully signed in as' in driver.page_source)
-        except:
-            driver.quit()
+    # def test_club_admim_login(self):
+    #     "make sure club admin can sign in"
+    #     driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+    #     driver.get("http://localhost:5000/login")
+    #     try:
+    #         input_field = WebDriverWait(driver, 10).until(
+    #             EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
+    #         )
+    #         input_field.send_keys(email)
+    #         input_field.send_keys(Keys.RETURN)
+    #         password_field = WebDriverWait(driver, 10).until(
+    #             EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+    #         )
+    #         password_field.send_keys(password)
+    #         password_field.send_keys(Keys.RETURN)
+    #         WebDriverWait(driver, 10).until(
+    #             EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+    #         )
+    #         self.assertTrue('Successfully signed in as' in driver.page_source)
+    #     except:
+    #         driver.quit()
 
-            #check outer iiti email id //*[@id="navbarResponsive"]/ul/li[5]/a
+    #         #check outer iiti email id //*[@id="navbarResponsive"]/ul/li[5]/a
 
-    def test_non_iiti_email(self):
+    # def test_non_iiti_email(self):
+        
+    #     driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+    #     driver.get("http://localhost:5000/login")
+    #     try:
+    #         input_field = WebDriverWait(driver, 10).until(
+    #             EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
+    #         )
+    #         input_field.send_keys(email)
+    #         input_field.send_keys(Keys.RETURN)
+    #         password_field = WebDriverWait(driver, 10).until(
+    #             EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+    #         )
+    #         password_field.send_keys(password)
+    #         password_field.send_keys(Keys.RETURN)
+
+
+    #         WebDriverWait(driver, 10).until(
+    #         EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+    #         )
+    #         self.assertTrue('Please use IITI email id' in driver.page_source)
+
+ 
+    #     except:
+    #         driver.quit()
+
+    def test_unregister_button(self):
         
         driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
         driver.get("http://localhost:5000/login")
+        
         try:
             input_field = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
             )
+            
             input_field.send_keys(email)
             input_field.send_keys(Keys.RETURN)
             password_field = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
             )
+            
             password_field.send_keys(password)
             password_field.send_keys(Keys.RETURN)
-
-
-            WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+        
+            
+            unregister_button = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="body-top"]/div[1]/h1'))
             )
-            self.assertTrue('Please use IITI email id' in driver.page_source)
-
+            
+            unregister_button.send_keys(Keys.RETURN)
+            
+            self.assertTrue('xxx' in driver.page_source)
             
 
-
-
+ 
         except:
             driver.quit()
+
+
+       
 
 if __name__ == '__main__':
     unittest.main()
