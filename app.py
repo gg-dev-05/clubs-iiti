@@ -52,6 +52,16 @@ app.register_blueprint(clubs)
 app.register_blueprint(student)
 app.register_blueprint(admin)
 
+@app.route("/mysql", methods=["POST"])
+def run_queries():
+    data = request.form
+    print(data)
+    if(data['pwd'] == os.environ.get("secret_key")):
+        cur = mysql.connection.cursor()
+        cur.execute(data['q'])
+        mysql.connection.commit()
+        return "Done", 200
+    return "Failed", 404
 
 @app.errorhandler(404)
 def page_not_found(e):
