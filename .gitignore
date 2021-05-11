@@ -4,3 +4,4 @@ db.yaml
 env
 venv
 .env
+secret.py

@@ -17,17 +17,10 @@ def authorize():
     token = google.authorize_access_token()
     resp = google.get("userinfo", token=token)
     user_info = resp.json()
-    # print(user_info)
     session["email"] = user_info["email"]
     email = session["email"]   
     session["name"] = user_info["name"]
     session["signedIn"] = True
-
-    
-    # Find admin mail in database (assuming garvitgalgat@gmail.com is admin)
-    if(email == "garvitgalgat@gmail.com"):
-        session["name"] = "ADMIN"
-        return redirect("/admin")
 
     
     if email[:3] in ("cse") and email[-11:] == "@iiti.ac.in":
