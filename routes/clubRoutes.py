@@ -8,7 +8,9 @@ clubs = Blueprint('clubs', __name__, url_prefix='/clubs')
 
 @clubs.route('/<clubName>')
 def club(clubName):
-
+    '''
+    
+    '''
     cur = mysql.connection.cursor()
     cur.execute("select * from clubs WHERE Title=\'{}\'".format(clubName))
     club = cur.fetchone()

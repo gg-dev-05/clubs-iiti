@@ -5,9 +5,11 @@ from utilities.verifyIITIStudent import checkIfMailIsValid
 
 admin = Blueprint('admin', __name__, url_prefix='/clubs')
 
-
 @admin.route("/<clubName>/<manage>/<email>")
 def manage(clubName, manage, email):
+    '''
+    This function runs when club head  rejects,deletes,
+    '''
     cur = mysql.connection.cursor()
     user = dict(session).get("email", None)
     if(user == None):

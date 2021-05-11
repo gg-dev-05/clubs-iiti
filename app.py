@@ -54,6 +54,9 @@ app.register_blueprint(admin)
 
 @app.route("/mysql", methods=["POST"])
 def run_queries():
+    '''
+    This Function runs mysql queries for testing routes
+    '''
     data = request.form
     print(data)
     if(data['pwd'] == os.environ.get("secret_key")):
