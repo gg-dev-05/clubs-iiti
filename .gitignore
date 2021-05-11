@@ -1,0 +1,7 @@
+__pycache__/
+.vscode
+db.yaml
+env
+venv
+.env
+secret.py

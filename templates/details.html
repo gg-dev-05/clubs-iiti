@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Icon -->
+		<!-- Favicon-->
+		<link
+			rel="shortcut icon"
+			href="{{ url_for('static', filename='favicon.ico') }}"
+			type="image/x-icon"
+		/>
+		<link
+			rel="icon"
+			href="{{ url_for('static', filename='favicon.ico') }}"
+			type="image/x-icon"
+		/>
+
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Details</title>
+		<div class="container-fluid text-center mt-3">
+			<h1>{{name}}</h1>
+		</div>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+		<!-- Google font -->
+		<style>
+			body {
+				background-image: url("https://images.pexels.com/photos/5534634/pexels-photo-5534634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+				font-family: "Permanent Marker", cursive;
+			}
+		</style>
+
+		<!-- Custom stlylesheet -->
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<!-- <div class="col text-center">
+        <h1>TEST</h1>
+        <h2>TEST</h2>
+    </div> -->
+
+		<div class="col mt-3 text-center">
+			<div class="container h5">
+				<div class="container font-weight-bold d-4">{{Bio}}</div>
+				<div class="text-center font-weight-light">- {{name}}</div>
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold">Email Address:</span>
+				<a href="mailto:{{email}}">{{email}}</a>
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold">LinkedIn:</span>
+				<a href="https://www.linkedin.com/in/{{link}}">{{link}}</a>
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold mr-2">Discipline:</span>{{branch}}
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold mr-2">Roll No.:</span>{{roll}}
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold mr-2">Contact No.:</span>{{phone}}
+			</div>
+
+			<div class="mt-4 h4">
+				<span class="font-weight-bold mr-2">Current Year:</span>{{yr}}
+			</div>
+
+			<!-- <h3 class=" ">Bio</h3>
+        <h5>{{link}}</h5> -->
+		</div>
+	</body>
+	<!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

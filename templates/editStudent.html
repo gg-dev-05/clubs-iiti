@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% block title %}
+<title>Register</title>
+
+{% block link %} href="/" {% endblock link %} {% endblock title %} {% block body %} {% if msg %}
+<div class="container fixed-top">
+    <div class="alert alert-{{msg_alert}} alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+    </div>
+</div>
+{% endif %}
+<div class="container mt-5 pt-5">
+    <form action="/student" method="POST">
+
+        <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input type="text" class="form-control" id="full_name" name="full_name" value="{{student[1]}}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="roll_no">Roll No.</label>
+            <input type="number" class="form-control" id="roll_no" name="roll_no" value="{{student[4]}}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="phone_no">Phone No.</label>
+            <input type="number" class="form-control" id="phone_no" name="phone_no" value="{{student[5]}}" minlength="9" maxlength="9" required>
+            <small class="form-text text-muted">We will prank call you for sure.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="mail_id">Email ID</label>
+            <input type="email" class="form-control" id="mail_id" name="mail_id" value="{{student[0]}}" readonly>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+
+        <div class="form-group">
+            <label for="linkedin">LinkedIn ID</label>
+            <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{student[2]}}">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+
+        <!-- Add Bio -->
+        <div class="form-group">
+            <label for="Bio">Bio</label>
+            <textarea class="form-control" rows="3" name="Bio" id="Bio">{{student[7]}}</textarea>
+        </div>
+
+
+
+        <!-- Add options -->
+        <div class="form-group">
+            <label for="branch">Branch</label>
+
+            <select class="custom-select" name="branch" id="branch">
+              <option value="EE">EE</option>
+              <option value="CSE">CSE</option>
+              <option value="ME">ME</option>
+              <option value="CE">CE</option>
+              <option value="MEMS">MEMS</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="year" id="year">Current Year </label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="year" value="1" id="year1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="year" value="2" id="year2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="year" value="3" id="year3">
+                <label class="form-check-label" for="inlineRadio3">3</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="year" value="4" id="year4">
+                <label class="form-check-label" for="inlineRadio3">4</label>
+            </div>
+
+
+
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+    <form action="/remove" method="POST">
+        <div class="form-group">
+            <div class="form-text text-muted">Delete all information from <strong>clubsIITI</strong>.</div>
+            <button type="submit" class="btn btn-outline-danger">UN-REGISTER</button>
+
+
+        </div>
+    </form>
+
+
+</div>
+
+{% endblock body %} {% block extraScripts %}
+<script src="{{ url_for('static', filename='js/studentForm.js')  }}"></script>
+
+{% endblock extraScripts %}

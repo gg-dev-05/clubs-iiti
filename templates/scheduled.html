@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block title %}
+<title>Meeting Scheduled</title>
+
+{% block link %} href="/" {% endblock link %} {% endblock title %} {% block body %}
+<div class="jumbotron text-center mt-5 pt-5">
+    <!-- <h1 class="display-3">Thank You!</h1> -->
+    <p class="lead mt-5 pt-5">
+        Meeting scheduled with <em><a href="mailto:{{student}}">{{student}}</a></em>.
+        <h3>
+            <a href="{{link}}">Join Meeting</a>
+
+        </h3>
+        <hr>
+        <p>
+            Any Queries? <a href="mailto:clubsiiti@gmail.com">Contact us</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary btn-sm" href="/" role="button">Continue to homepage</a>
+        </p>
+</div>
+
+{% endblock body %} {% block extraScripts %}
+<script src="{{ url_for('static', filename='js/studentForm.js')  }}"></script>
+
+{% endblock extraScripts %}

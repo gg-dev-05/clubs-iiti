@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block title %}
+<title>Sign In Required</title>
+
+{% block link %} href="/" {% endblock link %} {% endblock title %} {% block body %}
+<div class="jumbotron text-center mt-5 pt-5">
+    <h1 class="display-3">Please Sign In to <a href="/">ClubsIITI</a>!</h1>
+    <p class="lead">Only <strong>IITI Students</strong> can continue further</p>
+    <hr>
+    <p>
+        Having trouble? <a href="/">Contact us</a>
+    </p>
+    <p class="lead">
+        <a class="btn btn-primary btn-sm" href="/" role="button">Continue to homepage</a>
+    </p>
+</div>
+
+{% endblock body %} {% block extraScripts %}
+<script src="{{ url_for('static', filename='js/studentForm.js')  }}"></script>
+
+{% endblock extraScripts %}
