@@ -35,7 +35,6 @@ app.config['MYSQL_USER'] = user
 app.config['MYSQL_PASSWORD'] = password
 app.config['MYSQL_DB'] = db
 
-
 ''' MYSQL object initialization '''
 mysql.init_app(app)
 
@@ -56,7 +55,6 @@ app.register_blueprint(admin)
 
 @app.errorhandler(404)
 def page_not_found(e):
-    print("Page Not Found")
     return render_template('error.html')
 
 
