@@ -92,6 +92,39 @@ class FlaskTestCase(unittest.TestCase):
         except:
             driver.quit()
 
+    def test_mail_functionality_on_applying(self):
+        driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+        driver.get("http://localhost:5000/login")
+        try:
+            input_field = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="identifierId"]'))
+            )
+            input_field.send_keys(email)
+            input_field.send_keys(Keys.RETURN)
+            password_field = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+            )
+            password_field.send_keys(password)
+            password_field.send_keys(Keys.RETURN)
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+            )
+            self.assertTrue('Successfully signed in as' in driver.page_source)
+            driver.get("http://localhost:5000/clubs/music")
+            apply_button = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="body-top"]/header/div/a'))
+            )
+            apply_button.send_keys(Keys.RETURN)
+
+            self.assertTrue(
+                'Club Head will decide further....Hope for the best!' in driver.page_source)
+        except:
+            driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main()
