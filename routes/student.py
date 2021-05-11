@@ -3,7 +3,11 @@ from config.mysql import mysql
 
 student = Blueprint('student', __name__)
 
-
+'''
+This helps to add a new student in the database along with his/her details
+like mail_id, fullname , branch , roll number , linked profile etc. through the
+provided form, then he can explore the website consisting of different clubs
+'''
 @student.route("/student", methods=['GET', 'POST'])
 def studentHome():
     user = dict(session).get("email", None)
@@ -46,7 +50,10 @@ def studentHome():
     else:
         return redirect("/login")
 
-
+'''
+This Function is called when a student wants to unregister from club activities and wants to leave,
+All the details of the student is deleted from the database along with a sweet message of " GOODBYE !" 
+'''
 @student.route("/remove", methods=['POST'])
 def bye():
     user = dict(session).get("email", None)

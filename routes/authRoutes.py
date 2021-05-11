@@ -6,6 +6,9 @@ auth = Blueprint('auth', __name__)
 
 @auth.route("/login")
 def login():
+    '''
+    This is to implement google O-auth. 
+    '''
     google = oauth.create_client("google")
     redirect_uri = url_for("auth.authorize", _external=True)
     return google.authorize_redirect(redirect_uri)
@@ -13,6 +16,9 @@ def login():
 
 @auth.route("/authorize")
 def authorize():
+    '''
+    This is to verify the email id of user attempting to log in to the app and to populate the session variable. 
+    '''
     google = oauth.create_client("google")
     token = google.authorize_access_token()
     resp = google.get("userinfo", token=token)

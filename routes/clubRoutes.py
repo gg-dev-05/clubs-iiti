@@ -9,7 +9,7 @@ clubs = Blueprint('clubs', __name__, url_prefix='/clubs')
 @clubs.route('/<clubName>')
 def club(clubName):
     '''
-    
+    This route goes to the clubpage
     '''
     cur = mysql.connection.cursor()
     cur.execute("select * from clubs WHERE Title=\'{}\'".format(clubName))
@@ -99,6 +99,9 @@ def club(clubName):
 
 @clubs.route("/<clubName>/apply")
 def apply(clubName):
+    '''
+    To apply in the club
+    '''
     cur = mysql.connection.cursor()
     user = dict(session).get("email", None)
 
@@ -122,6 +125,9 @@ def apply(clubName):
 
 @clubs.route("/<clubName>/<manage>/<email>")
 def manage(clubName, manage, email):
+    '''
+    This function helps admin to accept reject or schedule meeting
+    '''
     cur = mysql.connection.cursor()
     user = dict(session).get("email", None)
     if(user == None):
@@ -195,6 +201,9 @@ def manage(clubName, manage, email):
 
 @clubs.route("/<clubName>/edit", methods=['GET', 'POST'])
 def edit(clubName):
+    '''
+    This function helps edit the club details
+    '''
     if request.method == 'GET':
         cur = mysql.connection.cursor()
         email = dict(session).get("email", None)
@@ -242,7 +251,9 @@ def edit(clubName):
 
 @clubs.route("/<clubName>/meeting/<student>", methods=["GET", "POST"])
 def schedule(clubName, student):
-
+    '''
+    This function schedules the meeting with students
+    '''
     user = dict(session).get("email", None)
     if(user == None):
         return render_template("signIn.html")

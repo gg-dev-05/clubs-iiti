@@ -4,8 +4,13 @@ from utilities.images import img
 
 home = Blueprint('home', __name__)
 
+'''
+This redirects to the source home page if the Email ID is recognised as given by institute
+as "iiti.ac.in" as POSTFIX , otherwise it insists for joining by the same 
+'''
 @home.route("/")
 def index():
+
     signedIn = dict(session).get("signedIn", None)
     msg = ""
     msg_alert = "danger"

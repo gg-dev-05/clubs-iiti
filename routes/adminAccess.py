@@ -8,7 +8,8 @@ admin = Blueprint('admin', __name__, url_prefix='/clubs')
 @admin.route("/<clubName>/<manage>/<email>")
 def manage(clubName, manage, email):
     '''
-    This function runs when club head  rejects,deletes,
+    This function runs when club head  rejects,deletes and
+    removes an applicant or schedule a meeting with the applicant.
     '''
     cur = mysql.connection.cursor()
     user = dict(session).get("email", None)
@@ -36,7 +37,7 @@ def manage(clubName, manage, email):
             mysql.connection.commit()
             cur.close()
             return redirect("/clubs/{}".format(clubName))
-
+        # Approve student and accept him to the club
         elif(manage == "approve"):
             cur = mysql.connection.cursor()
             cur.execute(
@@ -53,7 +54,7 @@ def manage(clubName, manage, email):
             mysql.connection.commit()
             cur.close()
             return redirect("/clubs/{}".format(clubName))
-
+        # Reject the student 
         elif(manage == "reject"):
             cur = mysql.connection.cursor()
             cur.execute(
@@ -80,7 +81,10 @@ def manage(clubName, manage, email):
     else:
         return render_template("error.html")
 
-
+'''
+This function provides the utility in order to edit the details about the club 
+like achievements, about, events etc.  by the Club Head
+'''
 @admin.route("/<clubName>/edit", methods=['GET', 'POST'])
 def edit(clubName):
     if request.method == 'GET':
@@ -127,6 +131,10 @@ def edit(clubName):
 
         return redirect("/clubs/{}".format(clubName))
 
+'''
+This Function helps to setup meeting with the following students who filled the form for joining
+respective club, It fetches the details from database and sends Mails to respective Email IDs  
+'''
 
 @admin.route("/<clubName>/meeting/<student>", methods=["GET", "POST"])
 def schedule(clubName, student):
@@ -200,7 +208,10 @@ def schedule(clubName, student):
     else:
         return render_template("error.html")
 
-
+'''
+This Function fetches and returns the details of the club members
+like their name, roll number, phone number etc.
+'''
 @admin.route("/<clubName>/<email>")
 def detailsOfStudent(clubName, email):
     # check if session['email'] is head of clubName

@@ -6,6 +6,9 @@ details = Blueprint('details', __name__, url_prefix="/details")
 
 @details.route("/")
 def myDetails():
+    '''
+    This is to display the form that displays the student information as it exists in the db. 
+    '''
     email = dict(session).get("email", None)
     if(email == None):
         return redirect("/")
