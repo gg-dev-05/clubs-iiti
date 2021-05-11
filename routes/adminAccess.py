@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, session
+from flask import flash, Blueprint, render_template, request, session, redirect
 from config.mysql import mysql
 from utilities.images import img
+from utilities.send_mail import send_mail
 from utilities.verifyIITIStudent import checkIfMailIsValid
 
 admin = Blueprint('admin', __name__, url_prefix='/clubs')
@@ -36,6 +37,7 @@ def manage(clubName, manage, email):
                 email, club[0]))
             mysql.connection.commit()
             cur.close()
+            flash("{} has been removed from the club.".format(user))
             return redirect("/clubs/{}".format(clubName))
         # Approve student and accept him to the club
         elif(manage == "approve"):
@@ -53,6 +55,7 @@ def manage(clubName, manage, email):
                 email, "Subject:Welcome Welcome!!\n\nCongrats from {}\n You have been accepted into the club!!".format(club[0]))
             mysql.connection.commit()
             cur.close()
+            flash("{} has been recruited into the club.".format(user))
             return redirect("/clubs/{}".format(clubName))
         # Reject the student 
         elif(manage == "reject"):
@@ -64,6 +67,7 @@ def manage(clubName, manage, email):
                 email, club[0]))
             mysql.connection.commit()
             cur.close()
+            flash("{} has been rejected.".format(user))
             return redirect("/clubs/{}".format(clubName))
 
         elif(manage == "schedule"):
@@ -81,12 +85,12 @@ def manage(clubName, manage, email):
     else:
         return render_template("error.html")
 
-'''
-This function provides the utility in order to edit the details about the club 
-like achievements, about, events etc.  by the Club Head
-'''
 @admin.route("/<clubName>/edit", methods=['GET', 'POST'])
 def edit(clubName):
+    '''
+    This function provides the utility in order to edit the details about the club 
+    like achievements, about, events etc.  by the Club Head
+    '''
     if request.method == 'GET':
         cur = mysql.connection.cursor()
         email = dict(session).get("email", None)
@@ -131,14 +135,13 @@ def edit(clubName):
 
         return redirect("/clubs/{}".format(clubName))
 
-'''
-This Function helps to setup meeting with the following students who filled the form for joining
-respective club, It fetches the details from database and sends Mails to respective Email IDs  
-'''
 
 @admin.route("/<clubName>/meeting/<student>", methods=["GET", "POST"])
 def schedule(clubName, student):
-
+    '''
+    This Function helps to setup meeting with the following students who filled the form for joining
+    respective club, It fetches the details from database and sends Mails to respective Email IDs  
+    '''
     user = dict(session).get("email", None)
     if(user == None):
         return render_template("signIn.html")
@@ -208,12 +211,13 @@ def schedule(clubName, student):
     else:
         return render_template("error.html")
 
-'''
-This Function fetches and returns the details of the club members
-like their name, roll number, phone number etc.
-'''
+
 @admin.route("/<clubName>/<email>")
 def detailsOfStudent(clubName, email):
+    '''
+    This Function fetches and returns the details of the club members
+    like their name, roll number, phone number etc.
+    '''
     # check if session['email'] is head of clubName
     user = dict(session).get("email", None)
     if(user == None):
