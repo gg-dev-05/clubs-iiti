@@ -29,7 +29,8 @@ secret_key=  __RETRACTED__ (Any secret key of your choice)
   <em>Here __RETRACTED__ refers we must not share this variable, and thus should not be present in public repos</em>
 * After setting <code>.env</code> file install all the required python packages using 
 <code>pip install -r requirements.txt</code>
-* Start the server using <code>python app.py</code>
+* Before running the server create all the required mysql tables and populate them by running <code><a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/sql/clubs-iiti.ddl">clubs-iiti.ddl</a></code> and <code><a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/sql/populate.sql">populate.sql</a></code> in your sql editor.
+* Start the server using <code>python <a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/app.py">app.py</a></code>
 
 
 ## Scope
