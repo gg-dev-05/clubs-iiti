@@ -12,6 +12,26 @@
 A project under the course <b>CS-258</b>, we created this application under the guidance of Puneet Gupta Sir and Anup Gupta Sir.
 </p>
 
+## Local Installation
+* Clone this repo using <code>git clone https://github.com/gg-dev-05/clubs-iiti.git</code>
+* After cloning create a <code>.env</code> file to store all the environment variables
+* Fill in the <code>.env</code> file with the content as follows
+```
+env=dev
+CLEARDB_DATABASE_URL= __RETRACTED__ (Put your mysql database url here)  
+client_id= __RETRACTED__ (Put Your client id given by google developer console)  
+client_secret=  __RETRACTED__ (Put Your client secret given by google developer console)  
+mail_id= __RETRACTED__ (Enter the email using which all clubs related emails will be sent)  
+mail_password=  __RETRACTED__ (Password for the above entered email-id)  
+secret_key=  __RETRACTED__ (Any secret key of your choice)
+```
+
+  <em>Here __RETRACTED__ refers we must not share this variable, and thus should not be present in public repos</em>
+* After setting <code>.env</code> file install all the required python packages using 
+<code>pip install -r requirements.txt</code>
+* Start the server using <code>python app.py</code>
+
+
 ## Scope
 
 ”<b>IITI Club Management WEBSITE</b>” creates a space for Teachers, IITI students,nonIITI students and Office Staffs for making an effort to resume the activities of the
