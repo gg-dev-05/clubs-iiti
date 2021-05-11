@@ -35,7 +35,6 @@ app.config['MYSQL_USER'] = user
 app.config['MYSQL_PASSWORD'] = password
 app.config['MYSQL_DB'] = db
 
-
 ''' MYSQL object initialization '''
 mysql.init_app(app)
 

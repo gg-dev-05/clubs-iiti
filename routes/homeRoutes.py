@@ -10,23 +10,18 @@ def index():
     msg = ""
     msg_alert = "danger"
     admin = False
-
     if signedIn:
         email = dict(session).get("email", None)
         msg = "Successfully signed in as : " + email
         msg_alert = "success"
 
-        # Check if is admin 
-        if(email == "garvitgalgat@gmail.com"):
-            admin = True
-
-        else:        
-            # Check if student info is available
-            cur = mysql.connection.cursor()
-            cur.execute("select Full_Name from students where Mail_id='{}'".format(email))
-            present = cur.fetchone()
-            mysql.connection.commit()
-            cur.close()
+        # Check if student info is available
+        cur = mysql.connection.cursor()
+        cur.execute("select Full_Name from students where Mail_id='{}'".format(email))
+        present = cur.fetchone()
+        mysql.connection.commit()
+        cur.close()
+        if not present:
             return render_template("newStudent.html", msg="Please verify your details", msg_alert="warning", name=session['name'])
 
     elif signedIn == None:

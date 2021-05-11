@@ -9,9 +9,6 @@ def myDetails():
     email = dict(session).get("email", None)
     if(email == None):
         return redirect("/")
-    # Check if is admin 
-    if(email == "garvitgalgat@gmail.com"):
-        return render_template("error.html")
     
     else:
         cur = mysql.connection.cursor()

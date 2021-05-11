@@ -23,12 +23,6 @@ def authorize():
     session["signedIn"] = True
 
     
-    # Find admin mail in database (assuming garvitgalgat@gmail.com is admin)
-    if(email == "garvitgalgat@gmail.com"):
-        session["name"] = "ADMIN"
-        return redirect("/admin")
-
-    
     if email[:3] in ("cse") and email[-11:] == "@iiti.ac.in":
         session["roll_no"] = email[3:12]
         session["branch"] = email[:3].upper()
