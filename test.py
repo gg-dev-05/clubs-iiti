@@ -4,13 +4,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-from secret import email, password, PATH, secret_key
+from secret import email, password, rasta, secret_key
 import time
 import requests
-class FlaskTestCase(unittest.TestCase):
+class FlaskTestCase(unittest.TestCase):               
 
     def test_club_admim_login(self):
-        driver = webdriver.Chrome(PATH)
+        
+        driver = webdriver.Chrome(rasta)
         driver.get("http://localhost:5000/login")
         try:
             input_field = WebDriverWait(driver, 10).until(
@@ -38,7 +39,7 @@ class FlaskTestCase(unittest.TestCase):
             driver.quit()
 
     def test_details_visibility_to_non_admin_users(self):
-        driver = webdriver.Chrome(PATH)
+        driver = webdriver.Chrome(rasta)
         driver.get("http://localhost:5000/login")
         try:
             input_field = WebDriverWait(driver, 10).until(
@@ -78,7 +79,7 @@ class FlaskTestCase(unittest.TestCase):
             driver.quit()
 
     def test_mail_functionality_on_applying(self):
-        driver = webdriver.Chrome(PATH)
+        driver = webdriver.Chrome(rasta)
         driver.get("http://localhost:5000/login")
         try:
             input_field = WebDriverWait(driver, 10).until(
