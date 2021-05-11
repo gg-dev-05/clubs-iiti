@@ -31,7 +31,7 @@ class FlaskTestCase(unittest.TestCase):
     
     def test_club_admim_login(self):
         "make sure club admin can sign in"
-        driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+        driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
         driver.get("http://localhost:5000/login")
         try:
             input_field = WebDriverWait(driver, 10).until(
@@ -48,6 +48,37 @@ class FlaskTestCase(unittest.TestCase):
                 EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
             )
             self.assertTrue('Successfully signed in as' in driver.page_source)
+        except:
+            driver.quit()
+
+            #check outer iiti email id //*[@id="navbarResponsive"]/ul/li[5]/a
+
+    def test_non_iiti_email(self):
+        
+        driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+        driver.get("http://localhost:5000/login")
+        try:
+            input_field = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
+            )
+            input_field.send_keys(email)
+            input_field.send_keys(Keys.RETURN)
+            password_field = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+            )
+            password_field.send_keys(password)
+            password_field.send_keys(Keys.RETURN)
+
+
+            WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+            )
+            self.assertTrue('Please use IITI email id' in driver.page_source)
+
+            
+
+
+
         except:
             driver.quit()
 
