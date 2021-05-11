@@ -32,7 +32,9 @@ class FlaskTestCase(unittest.TestCase):
             self.assertTrue('Successfully signed in as' in driver.page_source)
             print("Checked If Club Admin is able to sign in")
             driver.quit()
-        except:
+        except Exception as e:
+            print("Test Case Failed")
+            print(e)
             driver.quit()
 
     def test_details_visibility_to_non_admin_users(self):
@@ -70,7 +72,9 @@ class FlaskTestCase(unittest.TestCase):
                 'Only Club Head can continue further' in driver.page_source)
             driver.quit()
             print("Checked visibility of details to non admin users")
-        except:
+        except Exception as e:
+            print("Test Case Failed")
+            print(e)
             driver.quit()
 
     def test_mail_functionality_on_applying(self):
@@ -109,9 +113,9 @@ class FlaskTestCase(unittest.TestCase):
                 'Club Head will decide further....Hope for the best!' in driver.page_source)
             print("Testing Mail sending functionality and Verified Join Button Visibility")
         except Exception as e:
+            print("Test Case Failed")
             print(e)
             driver.quit()
-
 
 if __name__ == '__main__':
     unittest.main()
