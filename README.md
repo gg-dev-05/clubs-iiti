@@ -1,8 +1,8 @@
 <p align="center"><a href="https://clubs-iiti.herokuapp.com/"><img src="https://user-images.githubusercontent.com/59741135/109805900-04823b80-7c4a-11eb-8335-d59325487ab4.png" alt="CLUBSIITI" width="200"></a></p>
 <h4 align="center">A club management system build for  <a href="https://www.iiti.ac.in/" target="_blank">IITI</a> community.</h4>
 <p align="center">
-  <a href="#local-installation">Local Installation</a> •
   <a href="#aim">AIM</a> •
+  <a href="#local-installation">Local Installation</a> •
   <a href="#links">Links</a> •
   <a href="#testing">Tesing</a> •
   <a href="#tech-stack">Tech Stack</a> •
@@ -12,6 +12,21 @@
 <p align="center">
 A project under the course <b>CS-258</b>, we created this application under the guidance of Puneet Gupta Sir and Anup Gupta Sir.
 </p>
+
+
+## AIM
+
+”<b>IITI Club Management WEBSITE</b>” creates a space for Teachers, IITI students,nonIITI students and Office Staffs for making an effort to resume the activities of the
+clubs which have stopped due to the pandemic for <br>example:-Dance, Music, etc...
+After logging into the website by IIT-I Mail id, a student has been given a unique
+id, by using which he/she can reach out to form-fill-up page.<br>
+It will take his/her personal information,info about clubs which he/she have joined and info about the clubs for which he has applied.He will be added as a student of that particular club only after being approved by the club head.<br>Also the student can see the recent activities of any club and they can also see who all are already a part of the club.Student profile will contain all his personal information, past positions, recent positions etc...<br>
+Office staff, admins and club Heads can control the website according to the club
+which they have been assigned . But of course, with the permission of Director.
+Directors’ main work is to assign permission to the admins,<br> club heads and office
+staff when they want to create a new club or dissolve any existing club or merging
+two clubs.He also has all the authorities that are with the admins and the staff.
+He can also directly post<br> notice to the website, admins or club heads.
 
 ## Local Installation
 
@@ -36,19 +51,6 @@ secret_key =  RETRACTED (Any secret key of your choice)
 -   Before running the server create all the required mysql tables and populate them by running <code><a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/sql/clubs-iiti.ddl">clubs-iiti.ddl</a></code> and <code><a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/sql/populate.sql">populate.sql</a></code> in your sql editor.
 -   Start the server using <code>python <a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/app.py">app.py</a></code>
 
-## AIM
-
-”<b>IITI Club Management WEBSITE</b>” creates a space for Teachers, IITI students,nonIITI students and Office Staffs for making an effort to resume the activities of the
-clubs which have stopped due to the pandemic for <br>example:-Dance, Music, etc...
-After logging into the website by IIT-I Mail id, a student has been given a unique
-id, by using which he/she can reach out to form-fill-up page.<br>
-It will take his/her personal information,info about clubs which he/she have joined and info about the clubs for which he has applied.He will be added as a student of that particular club only after being approved by the club head.<br>Also the student can see the recent activities of any club and they can also see who all are already a part of the club.Student profile will contain all his personal information, past positions, recent positions etc...<br>
-Office staff, admins and club Heads can control the website according to the club
-which they have been assigned . But of course, with the permission of Director.
-Directors’ main work is to assign permission to the admins,<br> club heads and office
-staff when they want to create a new club or dissolve any existing club or merging
-two clubs.He also has all the authorities that are with the admins and the staff.
-He can also directly post<br> notice to the website, admins or club heads.
 
 ## USAGE STEPS:-
 
