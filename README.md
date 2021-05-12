@@ -1,8 +1,10 @@
 <p align="center"><a href="https://clubs-iiti.herokuapp.com/"><img src="https://user-images.githubusercontent.com/59741135/109805900-04823b80-7c4a-11eb-8335-d59325487ab4.png" alt="CLUBSIITI" width="200"></a></p>
 <h4 align="center">A club management system build for  <a href="https://www.iiti.ac.in/" target="_blank">IITI</a> community.</h4>
 <p align="center">
+  <a href="#local-installation">Local Installation</a> •
   <a href="#aim">AIM</a> •
   <a href="#links">Links</a> •
+  <a href="#testing">Tesing</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#team-members">Team Members</a>
 </p>
@@ -55,6 +57,18 @@ He can also directly post<br> notice to the website, admins or club heads.
 -   email will be sent to the student regarding details of the meeting. <br>
 -   Meeting will be set by clubhead with the aspirants. <br>
 -   If selected, he can continue
+
+
+## Testing
+In Order to run the automated testing in flask download chromewebdriver according to your version(for refernce see this tutorial <a href="https://youtu.be/Xjv1sY630Uc">click here</a>) and then  create a secret.py file and write the content as follows
+
+```
+email = RETRACTED (Enter the email for which you want to run the tests)
+password =  RETRACTED (Password for the above entered email-id)
+secret_key =  RETRACTED (Any secret key of your choice)
+rasta=RETRACTED (path for chromewebdriver)
+```
+
 
 ## Register Page
 
