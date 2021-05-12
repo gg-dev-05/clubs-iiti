@@ -33,7 +33,7 @@ secret_key=  __RETRACTED__ (Any secret key of your choice)
 * Start the server using <code>python <a href="https://github.com/gg-dev-05/clubs-iiti/blob/master/app.py">app.py</a></code>
 
 
-## Scope
+## AIM
 
 ”<b>IITI Club Management WEBSITE</b>” creates a space for Teachers, IITI students,nonIITI students and Office Staffs for making an effort to resume the activities of the
 clubs which have stopped due to the pandemic for <br>example:-Dance, Music, etc...
@@ -88,7 +88,7 @@ GRID fashion along with their Official Club Logo
 
 ## Links
 We have hosted the website on heroku: <a href="https://clubs-iiti.herokuapp.com/">Visit Us!!</a>  
-Demo Video : <a href="https://drive.google.com/file/d/1SFoFgWY0zGZmcvaYm_TApySEPZwFAgGi/view?usp=sharing">LINK</a>
+Demo Video : <a href="https://drive.google.com/file/d/1fTwQllhUYjhfaViI3D-29wVXFappUmI0/view?usp=sharing">LINK</a>
 
 
 ## Tech Stack
