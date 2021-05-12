@@ -299,30 +299,30 @@ class FlaskAdminTestCase(unittest.TestCase):
 			driver.quit()
 			exit()
 			
-	# def test_non_iiti_email(self):
-	# 	print("Testing  for non iiti email id")
-	# 	driver = webdriver.Chrome(rasta)
-	# 	driver.get("https://clubs-iiti.herokuapp.com/login")
-	# 	try:
-	# 		input_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
-	# 		)
-	# 		input_field.send_keys(email)
-	# 		input_field.send_keys(Keys.RETURN)
-	# 		password_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
-	# 		)
-	# 		password_field.send_keys(password)
-	# 		password_field.send_keys(Keys.RETURN)
+	def test_non_iiti_email(self):
+		print("Testing  for non iiti email id")
+		driver = webdriver.Chrome(rasta)
+		driver.get("https://clubs-iiti.herokuapp.com/login")
+		try:
+			input_field = WebDriverWait(driver, 10).until(
+				EC.presence_of_element_located((By.XPATH, '//*[@id="identifierId"]'))
+			)
+			input_field.send_keys(email)
+			input_field.send_keys(Keys.RETURN)
+			password_field = WebDriverWait(driver, 10).until(
+				EC.presence_of_element_located((By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+			)
+			password_field.send_keys(password)
+			password_field.send_keys(Keys.RETURN)
 
 
-	# 		WebDriverWait(driver, 10).until(
-	# 		EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
-	# 		)
-	# 		self.assertTrue('Please use IITI email id' in driver.page_source)
-	# 		print("Tested for non iiti email id")
-	# 	except Exception as e:
-	# 		print("Test Case Failed")
-	# 		print(e)
-	# 		driver.quit()
-	# 		exit()
+			WebDriverWait(driver, 10).until(
+			EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[1]/h1'))
+			)
+			self.assertTrue('Please use IITI email id' in driver.page_source)
+			print("Tested for non iiti email id")
+		except Exception as e:
+			print("Test Case Failed")
+			print(e)
+			driver.quit()
+			exit()
