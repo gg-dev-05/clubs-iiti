@@ -180,39 +180,39 @@ class FlaskClubsTestCase(unittest.TestCase):
 			driver.quit()
 			exit()
 
-	# def test_10_join_button_visible_music(self):
-	# 	print("Join music Club Test")
-	# 	driver = webdriver.Chrome(rasta)
-	# 	driver.get("https://clubs-iiti.herokuapp.com/login")
-	# 	try:
-	# 		input_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '//*[@id="identifierId"]'))
-	# 		)
-	# 		input_field.send_keys(email)
-	# 		input_field.send_keys(Keys.RETURN)
+	def test_14_join_button_visible_music(self):
+		print("Join music Club Test")
+		driver = webdriver.Chrome(rasta)
+		driver.get("https://clubs-iiti.herokuapp.com/login")
+		try:
+			input_field = WebDriverWait(driver, 10).until(
+				EC.presence_of_element_located(
+					(By.XPATH, '//*[@id="identifierId"]'))
+			)
+			input_field.send_keys(email)
+			input_field.send_keys(Keys.RETURN)
 
-	# 		password_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
-	# 		)
-	# 		password_field.send_keys(password)
-	# 		password_field.send_keys(Keys.RETURN)
-	# 		requests.post("https://clubs-iiti.herokuapp.com/mysql", data={"q": "DELETE FROM clubmembers WHERE Mail_Id = '{}';".format(email), "pwd": secret_key})
-	# 		requests.post("https://clubs-iiti.herokuapp.com/mysql", data={"q": "DELETE FROM approvals WHERE Mail_Id = '{}';".format(email), "pwd": secret_key})
-	# 		driver.get("https://clubs-iiti.herokuapp.com/clubs/music")
-	# 		join_button = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '/html/body/header/div/a'))
-	# 		)
-	# 		join_button.send_keys(Keys.RETURN)
-	# 		print("Test Success")
-	# 		driver.quit()
-	# 	except Exception as e:
-	# 		print("Test Case Failed")
-	# 		print(e)
-	# 		driver.quit()
-	# 		exit()
+			password_field = WebDriverWait(driver, 10).until(
+				EC.presence_of_element_located(
+					(By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
+			)
+			password_field.send_keys(password)
+			password_field.send_keys(Keys.RETURN)
+			requests.post("https://clubs-iiti.herokuapp.com/mysql", data={"q": "DELETE FROM clubmembers WHERE Mail_Id = '{}';".format(email), "pwd": secret_key})
+			requests.post("https://clubs-iiti.herokuapp.com/mysql", data={"q": "DELETE FROM approvals WHERE Mail_Id = '{}';".format(email), "pwd": secret_key})
+			driver.get("https://clubs-iiti.herokuapp.com/clubs/music")
+			join_button = WebDriverWait(driver, 10).until(
+				EC.presence_of_element_located(
+					(By.XPATH, '/html/body/header/div/a'))
+			)
+			join_button.send_keys(Keys.RETURN)
+			print("Test Success")
+			driver.quit()
+		except Exception as e:
+			print("Test Case Failed")
+			print(e)
+			driver.quit()
+			exit()
 
 	# def test_10_join_button_visible_mystic_hues(self):
 	# 	print("Join mystic_hues Club Test")
