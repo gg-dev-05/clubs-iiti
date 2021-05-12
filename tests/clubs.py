@@ -559,7 +559,7 @@ class FlaskClubsTestCase(unittest.TestCase):
 			exit()	
 
 
-	def test_24_join_button_visible_electronics(self):
+	def test_25_join_button_visible_electronics(self):
 		print("Join electronics Club Test")
 		driver = webdriver.Chrome(rasta)
 		driver.get("https://clubs-iiti.herokuapp.com/login")
@@ -593,7 +593,7 @@ class FlaskClubsTestCase(unittest.TestCase):
 			driver.quit()
 			exit()	
 
-	def test_25_join_button_visible_aeromodelling(self):
+	def test_26_join_button_visible_aeromodelling(self):
 		print("Join aeromodelling Club Test")
 		driver = webdriver.Chrome(rasta)
 		driver.get("https://clubs-iiti.herokuapp.com/login")
@@ -629,7 +629,7 @@ class FlaskClubsTestCase(unittest.TestCase):
 
 
 
-	def test_26_join_button_visible_dsc(self):
+	def test_27_join_button_visible_dsc(self):
 		print("Join dsc Club Test")
 		driver = webdriver.Chrome(rasta)
 		driver.get("https://clubs-iiti.herokuapp.com/login")
@@ -663,34 +663,4 @@ class FlaskClubsTestCase(unittest.TestCase):
 			driver.quit()
 			exit()			
 
-	# def test_join_button_visible_dsc(self):
-	# 	print("Checking DSC club")
-	# 	driver = webdriver.Chrome(rasta)
-	# 	driver.get("https://clubs-iiti.herokuapp.com/login")
-	# 	try:
-	# 		input_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '//*[@id="identifierId"]'))
-	# 		)
-	# 		input_field.send_keys(email)
-	# 		input_field.send_keys(Keys.RETURN)
-
-	# 		password_field = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '//*[@id="password"]/div[1]/div/div[1]/input'))
-	# 		)
-	# 		password_field.send_keys(password)
-	# 		password_field.send_keys(Keys.RETURN)
-	# 		requests.post("https://clubs-iiti.herokuapp.com/mysql", data={"q": "DELETE FROM clubmembers WHERE Mail_Id = '{}';".format(email), "pwd": secret_key})
-	# 		driver.get("https://clubs-iiti.herokuapp.com/clubs/dsc")
-	# 		join_button = WebDriverWait(driver, 10).until(
-	# 			EC.presence_of_element_located(
-	# 				(By.XPATH, '/html/body/header/div/a'))
-	# 		)
-	# 		join_button.send_keys(Keys.RETURN)
-	# 		print("Join Button visibility on dsc page")
-	# 	except Exception as e:
-	# 		print("Test Case Failed")
-	# 		print(e)
-	# 		driver.quit()
-	# 		exit()       
+     
