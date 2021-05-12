@@ -88,7 +88,7 @@ GRID fashion along with their Official Club Logo
 
 ## Links
 We have hosted the website on heroku: <a href="https://clubs-iiti.herokuapp.com/">Visit Us!!</a>  
-Demo Video : <a href="https://drive.google.com/file/d/1fTwQllhUYjhfaViI3D-29wVXFappUmI0/view?usp=sharing">LINK</a>
+Demo Video : <a href="https://drive.google.com/file/d/1LIwLs11gp8F0oINNn8Uw5GQy4hGZLp4W/view?usp=sharing">LINK</a>
 
 
 ## Tech Stack
