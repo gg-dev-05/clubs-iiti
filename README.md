@@ -1,7 +1,7 @@
 <p align="center"><a href="https://clubs-iiti.herokuapp.com/"><img src="https://user-images.githubusercontent.com/59741135/109805900-04823b80-7c4a-11eb-8335-d59325487ab4.png" alt="CLUBSIITI" width="200"></a></p>
 <h4 align="center">A club management system build for  <a href="https://www.iiti.ac.in/" target="_blank">IITI</a> community.</h4>
 <p align="center">
-  <a href="#aim">AIM</a> •
+  <a href="#aim">aim</a> •
   <a href="#local-installation">Local Installation</a> •
   <a href="#links">Links</a> •
   <a href="#testing">Tesing</a> •
